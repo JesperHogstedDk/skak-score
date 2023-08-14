@@ -3,7 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
-import Resultat from "./pages/Resultat";
+import Results from "./pages/result/Results";
+import ResultNew from "./pages/result/ResultNew";
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 
@@ -15,7 +16,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="resultat" element={<Resultat />} />
+          <Route path="results" element={<Results />} />
+          <Route path="result-new" element={<ResultNew />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NoPage />} />
         </Route>

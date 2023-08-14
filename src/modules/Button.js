@@ -1,7 +1,11 @@
-const Button = ({label}) => {
+import './button.css'
+
+const Button = ({ src, label }) => {
     return (
-        <button>{label}</button>
-    )
+        <>
+            <a href={src} class="button">{label}</a>
+        </>
+    );
 };
 
 export default Button;

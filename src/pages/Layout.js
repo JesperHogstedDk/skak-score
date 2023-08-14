@@ -9,13 +9,10 @@ const Layout = () => {
             <Link className="App-link" to="/">Skak score</Link>
           </li>
           <li>
-            <Link to="/resultat">Resultat</Link>
+            <Link to="/results">Resultater</Link>
           </li>
           <li>
             <Link to="/contact">Kontakt</Link>
-          </li>
-          <li>
-            <Link to="/blogs">Blogs findes ikke</Link>
           </li>
         </ul>
       </nav>

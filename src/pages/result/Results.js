@@ -1,11 +1,11 @@
-import Button from "../modules/Button";
+import Button from "../../modules/Button";
 
 
-const Resultat = () => {
+const Results = () => {
     return (
         <>
             <p>
-                <Button label="Opret nyt resultat" />
+                <Button src="./result-new" label="Opret nyt resultat" />
             </p>
 
             <h1>Resultat oversigt</h1>
@@ -18,4 +18,4 @@ const Resultat = () => {
     );
 };
 
-export default Resultat;
+export default Results;
