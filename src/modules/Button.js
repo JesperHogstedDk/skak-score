@@ -3,7 +3,7 @@ import './button.css'
 const Button = ({ src, label }) => {
     return (
         <>
-            <a href={src} class="button">{label}</a>
+            <a href={src} className="button">{label}</a>
         </>
     );
 };
