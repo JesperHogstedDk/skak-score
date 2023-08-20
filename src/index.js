@@ -12,7 +12,7 @@ import './App.css'
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={"/skak-score"}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
