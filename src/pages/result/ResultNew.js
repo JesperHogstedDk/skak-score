@@ -11,7 +11,7 @@ const ResultNew = () => {
             <label htmlFor="modSpiller">Modspiller&nbsp;</label>
             <input id="modSpiller" type="number" />
             <p>
-                <Button label="Opret" src="./results" />
+                <Button label="Opret" src="results" />
             </p>
         </>
     );

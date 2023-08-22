@@ -10,7 +10,7 @@ const Results = () => {
     return (
         <>
             <p>
-                <Button src="./result-new" label="Opret nyt resultat" />
+                <Button src="result-new" label="Opret nyt resultat" />
             </p>
 
             <h1>Resultat oversigt</h1>
@@ -21,7 +21,7 @@ const Results = () => {
                 <tbody>
                     {
                         stilling.map((x) =>
-                            <tr>
+                            <tr key={x.dato}>
                                 <td>{x.spiller}</td><td>{x.modspiller}</td><td>{x.stilling}</td>
                                 <td>{x.dato.getFullYear()}-{x.dato.getMonth()}-{x.dato.getDate()}</td><td><button>Se </button></td>
                             </tr>
