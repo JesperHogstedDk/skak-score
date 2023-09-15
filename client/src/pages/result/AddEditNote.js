@@ -1,9 +1,9 @@
 import React from 'react';
 import {useParams, useNavigate} from "react-router-dom";
-import RenderData from "./RenderData";
-import Form from './Form';
-import useFetch, {getUrl} from "./useFetch";
-import {isNullOrUndefined} from "./strings";
+import RenderData from "../../modules/RenderData";
+import Form from '../../modules/Form';
+import useFetch, {getUrl} from "../../modules/useFetch";
+import {isNullOrUndefined} from "../../modules/strings";
 
 const AddEditNote = () => {
   const {noteId} = useParams();

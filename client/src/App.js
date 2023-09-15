@@ -1,34 +1,44 @@
 import {
-  Link,
-  HashRouter as Router,
   Routes,
   Route,
+  BrowserRouter,
 } from 'react-router-dom';
-import AddEditNote from "./AddEditNote";
-import NoteList from "./NoteList";
+import AddEditNote from "./pages/result/AddEditNote";
+import NoteList from "./pages/result/NoteList";
+
+import Layout from "./pages/Layout";
+import Home from "./pages/Home";
+import Results from "./pages/result/Results";
+import ResultNew from "./pages/result/ResultNew";
+import Contact from "./pages/Contact";
+import NoPage from "./pages/NoPage";
+import SkakList from './pages/result/SkakList';
+
 import './App.css';
 
 function App() {
   return (
       <div className="App">
-        <Router>
-          <Routes>
-            <Route exact path="/" element={
-              <ul>
-                <li>
-                  <Link to="/note-list">List Notes</Link>
-                </li>
-                <li>
-                  <Link to="/edit-note">Create Note</Link>
-                </li>
-              </ul>
-            }/>
-            <Route path="/note-list" element={<NoteList/>}/>
-            <Route path="/edit-note" element={<AddEditNote/>}/>
-            <Route path="/edit-note/:noteId" element={<AddEditNote/>}/>
-          </Routes>
-        </Router>
+          <BrowserRouter basename={"/skak-score"}>
+              <Routes>
+                  <Route path="/" element={<Layout />}>
+                      <Route index element={<Home />} />
+                      <Route path="results" element={<Results />} />
+                      <Route path="result-new" element={<ResultNew />} />
+                      <Route path="result-new/:id" element={<ResultNew />} />
+                      <Route path="/skak-list" element={<SkakList />} />
+                      <Route path="contact" element={<Contact />} />
+                      <Route path="/note-list" element={<NoteList />} />
+                      <Route path="/edit-note" element={<AddEditNote />} />
+                      <Route path="/edit-note/:noteId" element={<AddEditNote />} />
+
+                      <Route path="*" element={<NoPage />} />
+                  </Route>
+              </Routes>
+          </BrowserRouter>
       </div>
+
+
   );
 }
 

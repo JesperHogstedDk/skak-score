@@ -1,25 +1,26 @@
 import React from 'react';
-import TableList from "./TableList";
 import {Link} from "react-router-dom";
-import useFetch from "./useFetch";
 
-const NoteList = () => {
-  const {notes} = useFetch('note')
+import TableList from "../../modules/TableList";
+import useFetch from "../../modules/useFetch";
+
+const SkakList = () => {
+  const {skaks} = useFetch('skak')
 
   return (
     <TableList
-      data={notes}
+      data={skaks}
       fieldFormatter={{
-        title: (title, dataRow) => [
+        turnering: (turnering, dataRow) => [
           <Link
-            to={`/edit-note/${dataRow.id}`}
+            to={`/result-new/${dataRow.id}`}
             key='1'
           >
             edit
           </Link>,
           <span key="2">
             &nbsp;{
-              title
+              turnering
             }
           </span>
         ],
@@ -29,4 +30,4 @@ const NoteList = () => {
   );
 };
 
-export default NoteList;
+export default SkakList;
