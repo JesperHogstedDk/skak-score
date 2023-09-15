@@ -36,10 +36,20 @@ async function seed() {
 
   await prisma.skak.create({
     data: {
-      turnering: 'Stormestrenes skak turnering 2',
+      turnering: 'Stormestrenes skak turnering',
       spillerNavn: 'Mette 2',
       spillerPoint: '2',
       modSpillerNavn: 'Jesper 2',
+      modSpillerPoint: '1',
+    },
+  });
+
+  await prisma.skak.create({
+    data: {
+      turnering: 'Stormestrenes skak turnering',
+      spillerNavn: 'Mette 3',
+      spillerPoint: '3',
+      modSpillerNavn: 'Jesper 3',
       modSpillerPoint: '1',
     },
   });

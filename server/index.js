@@ -27,7 +27,6 @@ const port = 4011;
 
 app.listen({port}, async () => {
   const baseUrl = `http://localhost:${port}`;
-  //const baseUrl = `https://hogsted.dk:${port}`;
 
   console.log(`Server running at: \t @ ${baseUrl}/`);
 });
