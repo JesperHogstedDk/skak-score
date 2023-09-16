@@ -9,6 +9,8 @@ async function getSkak(id) {
 }
 
 async function createSkak(skak) {
+  const {turnering} = skak;
+  console.log('skak.turnering=' + turnering);
   return prisma.skak.create({
     data: skak
   });

@@ -1,4 +1,5 @@
 import Button from "../../modules/Button";
+import SkakList from "./SkakList";
 
 const stilling = [
     { spiller: "Mette", modspiller: "Jesper", stilling: "remi", dato: new Date(2023, 8, 1) },
@@ -29,6 +30,9 @@ const Results = () => {
                     }
                 </tbody>
             </table>
+
+            <br/>
+            <SkakList></SkakList>
         </>
     );
 };

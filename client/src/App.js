@@ -25,7 +25,7 @@ function App() {
                       <Route index element={<Home />} />
                       <Route path="results" element={<Results />} />
                       <Route path="result-new" element={<ResultNew />} />
-                      <Route path="result-new/:id" element={<ResultNew />} />
+                      <Route path="result-new/:skakId" element={<ResultNew />} />
                       <Route path="/skak-list" element={<SkakList />} />
                       <Route path="contact" element={<Contact />} />
                       <Route path="/note-list" element={<NoteList />} />

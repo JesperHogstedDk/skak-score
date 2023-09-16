@@ -1,26 +1,41 @@
-import React from 'react';
+import React, {useState} from 'react';
 import InputLabel from "./InputLabel";
+import {isEmptyString, isNullOrUndefined, titleFromName} from "./strings";
 import './form.css'
 
-const isNullOrUndefined = prop => prop === null
-    || prop === undefined;
-const isEmptyString = prop => isNullOrUndefined(prop)
-    || prop === '';
-const capitalize = word =>
-    word.charAt(0).toUpperCase() +
-    word.slice(1).toLowerCase();
+const Form = ({entity, onSubmitHandler, onDeleteHandler}) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-function titleFromName(name) {
-    if (isEmptyString(name)) {
-        return '';
-    }
-
-    return name.split(/(?=[A-Z])|\s/).map(s => capitalize(s)).join(' ')
-}
-
-const Form = ({entity}) => {
   return (
-    <form>
+    <form onSubmit={e => {
+      setIsSubmitting(true);
+      const form = e.target;
+      const newEntity = Object.values(form).reduce((obj, field) => {
+        const {name} = field;
+
+        if (!isEmptyString(name)) {
+          switch (typeof entity[name]) {
+            case "number":
+              obj[name] = field.valueAsNumber;
+              break;
+            case "boolean":
+              obj[name] = field.value === 'true';
+              break;
+            default:
+              obj[name] = field.value
+          }
+        }
+
+        return obj
+    }, {})
+      onSubmitHandler(newEntity);
+
+      e.stopPropagation();
+      e.preventDefault()
+    }}>
+      <fieldset
+        disabled={isSubmitting}
+      >
       {
         Object.entries(entity).map(([entityKey, entityValue]) => {
           if (entityKey === "id") {
@@ -39,17 +54,32 @@ const Form = ({entity}) => {
                 typeof entityValue === "boolean"
                   ? "checkbox"
                   : "text"
-                }
-                value={entityValue}
-              />
-            }
-          })
-        }
+              }
+              value={entityValue}
+            />
+          }
+        })
+      }
+      </fieldset>
       <button
         type="submit"
+        disabled={isSubmitting}
       >
-        Submit
+        {
+          isSubmitting ? 'Submitting' : 'Submit'
+        }
       </button>
+      {
+        onDeleteHandler && !isNullOrUndefined(entity.id) && <button
+          disabled={isSubmitting}
+          onClick={() => {
+            setIsSubmitting(true);
+            onDeleteHandler(entity.id)
+          }}
+        >
+          Delete
+        </button>
+      }
     </form>
   );
 };
