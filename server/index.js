@@ -4,8 +4,9 @@ const morganLogger = require('morgan');
 const bodyParser = require('body-parser');
 const initRoutes = require('./routes/index');
 
-//require('dotenv').config(); // virker med .env fil
+require('dotenv').config(); // virker med .env fil
 console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
+console.log(`API_CORS_URL: ${process.env.API_CORS_URL}`);
 console.log(`API_URL: ${process.env.API_URL}`);
 console.log(`API_PORT: ${process.env.API_PORT}`);
 
@@ -14,9 +15,18 @@ const app = express();
 console.log(`env: ${env}`);
 if (env === 'development') {
   app.use(cors());
+} else  {
+  var corsOptions = {
+    origin: process.env.API_CORS_URL ,
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
+  app.get('/note', cors(corsOptions), function (req, res, next) {
+    res.json({msg: 'This is CORS-enabled for only ' + process.env.API_CORS_URL});
+  })
 }
-
 //app.use(express.static(__dirname + '/build/')); // kunne være et fix på et problem med 404 for fx css filer
+
+
 
 app.use(morganLogger('dev'));
 app.use(bodyParser.json());
