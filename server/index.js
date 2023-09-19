@@ -32,7 +32,7 @@ app.use(function (req, res, next) {
 
 const url = process.env.API_URL || "http://localhost";
 console.log(`Resolved url: ${url}`);
-const port = parseInt(process.env.API_PORT) || 4011;
+const port = parseInt(process.env.API_PORT) || 10000;
 console.log(`Resolved port: ${port}`);
 
 app.listen({ port }, async () => {
