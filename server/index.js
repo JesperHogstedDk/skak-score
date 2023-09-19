@@ -20,7 +20,7 @@ if (env === 'development') {
     origin: process.env.API_CORS_URL ,
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
   }
-  app.get('/note', cors(corsOptions), function (req, res, next) {
+  app.get('/skak', cors(corsOptions), function (req, res, next) {
     res.json({msg: 'This is CORS-enabled for only ' + process.env.API_CORS_URL});
   })
 }
