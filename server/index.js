@@ -20,7 +20,8 @@ if (env === 'development') {
   console.log('app.use(cors());');
 } else  {
   var corsOptions = {
-    origin: process.env.API_CORS_URL ,
+    //origin: process.env.API_CORS_URL ,
+    origin: 'https://skak-score.onrender.com' ,
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
   }
   app.get('/skak', cors(corsOptions), function (req, res, next) {
