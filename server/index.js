@@ -28,7 +28,8 @@ if (env === 'development') {
   })
   console.log("app.get('/skak', cors(corsOptions) ...");
 }
-//app.use(express.static(__dirname + '/build/')); // kunne være et fix på et problem med 404 for fx css filer
+
+app.use(express.static(__dirname + '/build/')); // kunne være et fix på et problem med 404 for fx css filer
 
 
 
