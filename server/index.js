@@ -15,21 +15,35 @@ const app = express();
 
 console.log(`env: ${env}`);
 
-// if (env === 'development') {
-//   app.use(cors());
-//   console.log('app.use(cors());');
-// } else  {
-//   var corsOptions = {
-//     origin: process.env.API_CORS_URL ,
-//     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-//   }
-//   app.get('/skak', cors(corsOptions), function (req, res, next) {
-//     res.json({msg: 'This is CORS-enabled for only ' + process.env.API_CORS_URL});
-//   })
-//   console.log("app.get('/skak', cors(corsOptions) ...");
-// }
+if (env === 'development') {
+  app.use(cors());
+  console.log('app.use(cors());');
+} else  {
+  var corsOptions = {
+    origin: process.env.API_CORS_URL ,
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
+  app.get('/skak', cors(corsOptions), function (req, res, next) {
+    res.json({msg: 'This is CORS-enabled for only ' + process.env.API_CORS_URL});
+  });
+  console.log("app.get('/skak', cors(corsOptions) ...");
 
-// app.use(express.static(__dirname + '/build/')); // kunne være et fix på et problem med 404 for fx css filer
+  app.get("/simple-cors", cors(), (req, res) => {
+    console.info("GET /simple-cors");
+    res.json({
+      text: "Simple CORS requests are working. [GET]"
+    });
+  }); 
+  app.get("/note", cors(), (req, res) => {
+    console.info("GET /note");
+    res.json({
+      text: "Simple CORS note requests are working. [GET]"
+    });
+  }); 
+
+}
+
+app.use(express.static(__dirname + '/build/')); // kunne være et fix på et problem med 404 for fx css filer
 
 
 
