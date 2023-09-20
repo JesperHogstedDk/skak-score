@@ -12,9 +12,12 @@ console.log(`API_PORT: ${process.env.API_PORT}`);
 
 const env = process.env.NODE_ENV || 'development';
 const app = express();
+
 console.log(`env: ${env}`);
+
 if (env === 'development') {
   app.use(cors());
+  console.log('app.use(cors());');
 } else  {
   var corsOptions = {
     origin: process.env.API_CORS_URL ,
@@ -23,6 +26,7 @@ if (env === 'development') {
   app.get('/skak', cors(corsOptions), function (req, res, next) {
     res.json({msg: 'This is CORS-enabled for only ' + process.env.API_CORS_URL});
   })
+  console.log("app.get('/skak', cors(corsOptions) ...");
 }
 //app.use(express.static(__dirname + '/build/')); // kunne være et fix på et problem med 404 for fx css filer
 
