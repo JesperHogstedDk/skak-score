@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 import Button from "../../modules/Button";
 import SkakList from "./SkakList";
 
@@ -11,8 +13,12 @@ const Results = () => {
     return (
         <>
             <p>
-                <Button src="result-new" label="Opret nyt resultat" />
+                <Button src="/result-new" label="Opret nyt resultat" />
             </p>
+            <p>
+                <Link className="App-link" to="/result-new">Opret nyt resultat (Link)</Link>
+            </p>
+
 
             <h1>Resultat oversigt</h1>
             <table>
@@ -31,7 +37,7 @@ const Results = () => {
                 </tbody>
             </table>
 
-            <br/>
+            <br />
             <SkakList></SkakList>
         </>
     );

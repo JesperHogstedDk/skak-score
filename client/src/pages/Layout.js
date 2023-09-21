@@ -12,6 +12,9 @@ const Layout = () => {
             <Link to="/results">Resultater</Link>
           </li>
           <li>
+            <Link to="/new-result" title="Skak resultat">Opret resultat</Link>
+          </li>
+          <li>
             <Link to="/note-list">Notater</Link>
           </li>
           <li>
