@@ -69,14 +69,19 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-## Added for production
+# Added for production
 ### Set Rewrite on IIS
-[redirect all requests](https://stackoverflow.com/questions/69433841/net-core-3-1-web-config-with-routing)
+[redirect all requests](https://stackoverflow.com/questions/69433841/net-core-3-1-web-config-with-routing)  
+[Redirects and Rewrites (Render.com)](https://render.com/docs/redirects-rewrites)
 
 ### COR headers on client
-Access-Control-Allow-Origin: https://skak-score-db-api.onrender.com/*
-Access-Control-Allow-Headers: Accept
-Access-Control-Allow-Methods: GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS
+`Since static sites don’t have a server-side component that can inject custom HTTP headers in responses, Render lets you define response headers for your static sites in your dashboard.` 
+[HTTP Headers for Static Sites](https://render.com/docs/static-site-headers).  
+Thus the header Access-Control-Allow-Origin cannot be set to <origin> on the static website, but injected by the host provider [Access-Control-Allow-Origin on MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#examples_of_access_control_scenarios)
+
+Access-Control-Allow-Origin: `https://skak-score-db-api.onrender.com/*`  
+Access-Control-Allow-Headers: `Accept`  
+Access-Control-Allow-Methods: `GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS`  
 
 ### environment variables on client
 REACT_APP_URL_API: https://skak-score-db-api.onrender.com/
