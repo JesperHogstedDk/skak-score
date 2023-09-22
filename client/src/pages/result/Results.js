@@ -1,13 +1,11 @@
-import {Link} from "react-router-dom";
-
 import Button from "../../modules/Button";
 import SkakList from "./SkakList";
 
-const stilling = [
-    { spiller: "Mette", modspiller: "Jesper", stilling: "remi", dato: new Date(2023, 8, 1) },
-    { spiller: "Mette", modspiller: "Jesper", stilling: "1-0", dato: new Date(2023, 8, 2) },
-    { spiller: "Mette", modspiller: "Jesper", stilling: "0-1", dato: new Date(2023, 8, 13) },
-];
+// const stilling = [
+//     { spiller: "Mette", modspiller: "Jesper", stilling: "remi", dato: new Date(2023, 8, 1) },
+//     { spiller: "Mette", modspiller: "Jesper", stilling: "1-0", dato: new Date(2023, 8, 2) },
+//     { spiller: "Mette", modspiller: "Jesper", stilling: "0-1", dato: new Date(2023, 8, 13) },
+// ];
 
 const Results = () => {
     return (
@@ -15,13 +13,9 @@ const Results = () => {
             <p>
                 <Button src="/result-new" label="Opret nyt resultat" />
             </p>
-            <p>
-                <Link className="App-link" to="/result-new">Opret nyt resultat (Link)</Link>
-            </p>
-
 
             <h1>Resultat oversigt</h1>
-            <table>
+            {/* <table>
                 <thead>
                     <tr><th>Spiller</th><th>Modspiller</th><th>Stilling</th><th>Dato</th><th>Se partiet</th></tr>
                 </thead>
@@ -37,7 +31,7 @@ const Results = () => {
                 </tbody>
             </table>
 
-            <br />
+            <br /> */}
             <SkakList></SkakList>
         </>
     );
