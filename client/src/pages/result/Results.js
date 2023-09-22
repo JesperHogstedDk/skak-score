@@ -1,5 +1,8 @@
+import {Suspense} from "react";
+
 import Button from "../../modules/Button";
 import SkakList from "./SkakList";
+import Loading from "../../modules/Loading";
 
 // const stilling = [
 //     { spiller: "Mette", modspiller: "Jesper", stilling: "remi", dato: new Date(2023, 8, 1) },
@@ -32,7 +35,9 @@ const Results = () => {
             </table>
 
             <br /> */}
-            <SkakList></SkakList>
+            <Suspense fallback={<Loading />}>
+                <SkakList />
+            </Suspense>
         </>
     );
 };

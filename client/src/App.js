@@ -13,6 +13,7 @@ import ResultNew from "./pages/result/ResultNew";
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import SkakList from './pages/result/SkakList';
+import CityList from './pages/CityList';
 
 import './App.css';
 
@@ -31,6 +32,7 @@ function App() {
                       <Route path="/note-list" element={<NoteList />} />
                       <Route path="/edit-note" element={<AddEditNote />} />
                       <Route path="/edit-note/:noteId" element={<AddEditNote />} />
+                      <Route path="/city-list" element={<CityList />} />
 
                       <Route path="*" element={<NoPage />} />
                   </Route>

@@ -11,6 +11,9 @@ const Layout = () => {
           <li>
             <Link to="/results">Skak resultater</Link>
           </li>
+          <li>
+            <Link to="/city-list">City list</Link>
+          </li>          
           {/* <li>
             <Link to="/note-list">Notater</Link>
           </li>
