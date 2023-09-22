@@ -42,7 +42,7 @@ const ResultNew = () => {
 
                         if (response.ok) {
                             await response.json()
-                            navigate('/skak-list')
+                            navigate('/results')
                         }
                     }}
                     onDeleteHandler={async (id) => {
@@ -55,7 +55,7 @@ const ResultNew = () => {
                                 }
                             });
 
-                            navigate('/skak-list')
+                            navigate('/results')
                         }
                     }}
                 />
