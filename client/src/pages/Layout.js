@@ -26,7 +26,10 @@ const Layout = () => {
         </ul>
       </nav>
 
+      <aside>TOBE SideBar</aside>
+      
       <Outlet />
+      <footer>Footer</footer>
     </>
   )
 };

@@ -1,15 +1,13 @@
 import React, { Suspense } from 'react';
 import { Link } from "react-router-dom";
 
-import Loading from "../../modules/Loading";
 import TableList from "../../modules/TableList";
 import useFetch from "../../modules/useFetch";
 
 const SkakList = () => {
   const { skaks } = useFetch('skak')
 
-  return (
-    <Suspense fallback={<Loading />}>
+  return (    
       <TableList
         data={skaks}
         fieldFormatter={{
@@ -29,7 +27,6 @@ const SkakList = () => {
           dateCreated: date => new Date(date).toLocaleString()
         }}
       />
-    </Suspense>
   );
 };
 
