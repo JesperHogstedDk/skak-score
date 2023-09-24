@@ -12,7 +12,7 @@ const Layout = () => {
             <Link to="/results">Skak resultater</Link>
           </li>
           <li>
-            <Link to="/city-list">City list</Link>
+            {/* <Link to="/city-list">City list</Link> */}
           </li>          
           {/* <li>
             <Link to="/note-list">Notater</Link>
@@ -26,7 +26,7 @@ const Layout = () => {
         </ul>
       </nav>
 
-      <aside>TOBE SideBar</aside>
+      {/* <aside>TOBE SideBar</aside> */}
       
       <Outlet />
       <footer>Footer</footer>

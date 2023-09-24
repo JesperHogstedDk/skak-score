@@ -11,7 +11,6 @@ const Results = () => {
             <p>
                 <Button src="/result-new" label="Opret nyt resultat" />
             </p>
-
             <h1>Resultat oversigt</h1>
             <Suspense fallback={<Loading />}>
                 <SkakList />
