@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
-import useFetch from '../../modules/useFetch';
+import useFetch, { getUrl } from '../../modules/useFetch';
 import TableList from "../../modules/TableList";
 
 // async function getSkaks() {
@@ -45,7 +45,7 @@ const SkakList = () => {
 
       try {
         //await fetchSkak('skak').then((records) => {
-        const response = await fetch('http://localhost:10000/skak')
+        const response = await fetch(getUrl('skak'))
           .then(await new Promise((resolve) => setTimeout(resolve, 200)));
         //const response = await fetchSkak('skak');
 
