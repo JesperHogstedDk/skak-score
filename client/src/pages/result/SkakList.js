@@ -3,35 +3,11 @@ import { Link } from "react-router-dom";
 
 import useFetch, { getUrl } from '../../modules/useFetch';
 import TableList from "../../modules/TableList";
-
-// async function getSkaks() {
-//   let response = await fetch(
-//     'http://localhost:10000/skak'
-//   );
-//   return response.json();
-// }
-
-
+import Loading from '../../modules/Loading';
 
 const SkakList = () => {
   //const { skaks } = useFetch('skak');
   //console.log(skaks);
-  //const { skaks } = await getSkaks();
-
-  // const fetchSkak = (url) => {
-  //   console.log("url:" + url);
-
-  //   return new Promise(() => {
-  //     useFetch(url);
-  //     //const { skaks } = useFetch(url);
-  //     //const response = fetch('http://localhost:10000/skak');
-  //     //const json = response.json();
-  //     //console.log("data:" + json);
-  //     //return skaks;
-  //   });
-  // }
-
-
 
   const [listing, setListing] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -46,18 +22,17 @@ const SkakList = () => {
       try {
         //await fetchSkak('skak').then((records) => {
         const response = await fetch(getUrl('skak'))
-          .then(await new Promise((resolve) => setTimeout(resolve, 200)));
-        //const response = await fetchSkak('skak');
-
+          .then(await new Promise((resolve) =>
+            setTimeout(resolve, 1000)));
+        
         if (!response.ok) {
-         // throw new Error(`HTTP error! Status: ${response.status}`);
+          throw new Error(`HTTP error! Status: ${response.status}`);
         }
         //console.log(response);
         const json = await response.json();
         setListing(json);
         setIsLoading(false);
         //console.log(json);
-        //await new Promise((resolve) => setTimeout(resolve, 2000));
 
       } catch (error) {
         console.log(error);
@@ -73,13 +48,14 @@ const SkakList = () => {
   //console.log(skaks);
 
   if (isLoading)
-    return <div>Loading results...</div>;
+    return <Loading/>;
   else if (skaks === undefined)
     return <div>Fail to load data!</div>;
 
   return (
     <TableList
       data={skaks}
+      title={<h1>Resultat oversigt</h1>}
       fieldFormatter={{
         turnering: (turnering, dataRow) => [
           <Link

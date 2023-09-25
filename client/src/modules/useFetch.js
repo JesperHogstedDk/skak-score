@@ -42,7 +42,9 @@ const useFetch = (url, skip) => {
             console.log('useFetch: Abort detected, exiting!')
             return;
           }
-          //await new Promise((resolve) => setTimeout(resolve, 2000));
+
+          await new Promise((resolve) => setTimeout(resolve, 500));
+          
           setData(res);
         }
       } catch (e) {
